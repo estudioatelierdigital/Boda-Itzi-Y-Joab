@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itzi &amp; Joab — Nuestra Boda</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Brand Footer Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Background Ambient Glow Dinámico -->
+  <div class="ambient-bg"></div>
+
+  <!-- Music Control Flotante Premium -->
+  <div class="music-player-container">
+    <button id="musicToggle" class="music-btn" aria-label="Reproducir o pausar música">
+      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+      <svg class="icon-pause hidden" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+      </svg>
+      <span class="music-text">Die With A Smile</span>
+    </button>
+    <audio id="bgMusic" loop preload="auto">
+      <source src="assets/audio/music.mp3" type="audio/mpeg">
+      Tu navegador no soporta el reproductor de audio.
+    </audio>
+  </div>
+
+  <!-- Hero Section / Portada -->
+  <header class="hero-section">
+    <div class="hero-content fade-in">
+      <span class="subtitle">Nuestra Boda</span>
+      <h1 class="names">Itzi <span class="ampersand">&amp;</span> Joab</h1>
+      <div class="divider-ornament">
+        <span class="line"></span>
+        <span class="diamond">◆</span>
+        <span class="line"></span>
+      </div>
+      <p class="date">17 . 01 . 2027</p>
+      <p class="location-brief">Jardín María Bonita • CDMX / Edomex</p>
+    </div>
+    <div class="scroll-indicator">
+      <span>Desliza</span>
+      <div class="arrow-down"></div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Countdown Section -->
+    <section class="section countdown-section">
+      <div class="container fade-in">
+        <h2 class="section-title-sm">Faltan tan solo</h2>
+        <div class="countdown-grid" id="countdown">
+          <div class="time-card">
+            <span id="days" class="number">00</span>
+            <span class="label">Días</span>
+          </div>
+          <div class="time-card">
+            <span id="hours" class="number">00</span>
+            <span class="label">Horas</span>
+          </div>
+          <div class="time-card">
+            <span id="minutes" class="number">00</span>
+            <span class="label">Minutos</span>
+          </div>
+          <div class="time-card">
+            <span id="seconds" class="number">00</span>
+            <span class="label">Segundos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frase Especial / Versículo -->
+    <section class="section quote-section">
+      <div class="container fade-in">
+        <blockquote class="quote-box">
+          <div class="quote-glow"></div>
+          <p class="quote-text">
+            “Entonces Jehová Dios dijo: 'No es bueno que el hombre siga solo. Voy a hacerle una ayudante que lo complemente.'”
+          </p>
+          <cite class="quote-author">Génesis 2:18</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Padres Section -->
+    <section class="section parents-section">
+      <div class="container fade-in">
+        <span class="section-tag">Con amor y bendición</span>
+        <h2 class="section-title">Nuestros Padres</h2>
+        <div class="parents-grid">
+          <div class="parents-card">
+            <h3>Padres de la Novia</h3>
+            <p>Liliana Ceja</p>
+            <p>Pedro Chávez</p>
+          </div>
+          <div class="parents-card">
+            <h3>Padres del Novio</h3>
+            <p>Bibiana Báez</p>
+            <p>Juan García</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ubicación & Evento -->
+    <section class="section location-section">
+      <div class="container fade-in">
+        <span class="section-tag">Ubicación</span>
+        <h2 class="section-title">Sede del Evento</h2>
+
+        <div class="location-card">
+          <div class="location-header">
+            <h3>Jardín María Bonita</h3>
+            <p class="address">La Joaquinita 491-MZ 028, Benito Juárez, 57000 Cdad. Nezahualcóyotl, Méx.</p>
+          </div>
+
+          <div class="location-actions">
+            <a href="https://www.google.com/maps/place/Jardin+maria+bonita/@19.4143384,-98.9949742,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1e300345d622d:0xb34aec1786d08305!8m2!3d19.4143334!4d-98.9923939!16s%2Fg%2F11x2ph2rsz?entry=ttu&g_ep=EgoyMDI2MTAxOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                <circle cx="12" cy="9" r="2.5"/>
+              </svg>
+              Abrir Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Itinerario Section -->
+    <section class="section itinerary-section">
+      <div class="container fade-in">
+        <span class="section-tag">Programa</span>
+        <h2 class="section-title">Itinerario del Día</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="time">04:00 PM</div>
+            <div class="details">
+              <h4>Discurso</h4>
+              <p>Ceremonia y palabras especiales</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">05:00 PM</div>
+            <div class="details">
+              <h4>Sesión de Fotos</h4>
+              <p>Momentos memorables con nuestros invitados</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">05:30 PM</div>
+            <div class="details">
+              <h4>Comida</h4>
+              <p>Banquete de celebración</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">06:30 PM</div>
+            <div class="details">
+              <h4>Baile</h4>
+              <p>Apertura de pista y fiesta</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">10:00 PM</div>
+            <div class="details">
+              <h4>Cierre del Evento</h4>
+              <p>Agradecimiento y despedida</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Código de Vestimenta -->
+    <section class="section dresscode-section">
+      <div class="container fade-in">
+        <span class="section-tag">Código de Vestimenta</span>
+        <h2 class="section-title">Dress Code</h2>
+        <div class="dresscode-card">
+          <div class="dresscode-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 3h12l-2 5-4 3-4-3-2-5z"/>
+              <path d="M9 7.5L12 9l3-1.5L14 11l-2-0.5L10 11z"/>
+              <circle cx="12" cy="9" r="0.8" fill="currentColor"/>
+              <path d="M4 21v-7l4-6"/>
+              <path d="M20 21v-7l-4-6"/>
+            </svg>
+          </div>
+          <h3>Formal / Elegante</h3>
+          <p>Queremos que luzcas espectacular en esta gran celebración.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mesa de Regalos -->
+    <section class="section gifts-section">
+      <div class="container fade-in">
+        <span class="section-tag">Detalles</span>
+        <h2 class="section-title">Mesa de Regalos</h2>
+        <div class="gift-card">
+          <div class="gift-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="8" width="18" height="12" rx="2"/>
+              <path d="M12 8v12"/>
+              <path d="M12 8H7.5a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8z"/>
+              <path d="M12 8h4.5a2.5 2.5 0 0 0 0-5C13 3 12 8 12 8z"/>
+            </svg>
+          </div>
+          <p class="gift-note">
+            Su presencia es nuestro mejor regalo. Si deseas darnos un obsequio adicional, agradeceríamos mucho que fuera a través de nuestra mesa de regalos:
+          </p>
+          <div class="gift-details">
+            <span class="store-name">Liverpool</span>
+            <div class="gift-number-box">
+              <span class="label">Número de Mesa:</span>
+              <span class="number-code">60044773</span>
+            </div>
+            <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60044773" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              Ir a Mesa de Regalos Liverpool
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP / Confirmación -->
+    <section class="section rsvp-section">
+      <div class="container fade-in">
+        <span class="section-tag">Asistencia</span>
+        <h2 class="section-title">Confirma tu Asistencia</h2>
+        <p class="rsvp-deadline">Favor de confirmar antes del <strong>13 de Diciembre de 2026</strong></p>
+
+        <div class="rsvp-buttons">
+          <a id="rsvpBtn1" href="https://wa.me/525514513155?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20para%20la%20boda%20de%20Itzi%20y%20Joab." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+            Confirmar al 55 14 51 3155
+          </a>
+
+          <a id="rsvpBtn2" href="https://wa.me/524251202065?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20para%20la%20boda%20de%20Itzi%20y%20Joab." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+            Confirmar al 425 120 2065
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cierre de Agradecimiento -->
+  <footer class="footer-event">
+    <div class="container fade-in">
+      <p class="footer-names">Itzi &amp; Joab</p>
+      <p class="footer-thanks">¡Esperamos contar con tu compañía en este día tan especial!</p>
+    </div>
+  </footer>
+
+    <!-- FOOTER MARCA ATELIER DIGITAL -->
+    <footer class="brand-section">
+        <img src="assets/img/logo.png" alt="Monograma Atelier Digital" class="brand-logo">
+        <div class="brand-divider"></div>
+        <p class="brand-created">Invitación creada por</p>
+        <h3 class="brand-name">ATELIER DIGITAL</h3>
+        <p class="brand-text">¿Te gustó esta invitación? Podemos personalizar una con tus fotos, colores, música y detalles únicos.</p>
+        <div class="brand-social">
+            <a href="https://www.instagram.com/atelier.digitalmx?igsh=M2k4cjhkeDNyZDQ3" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Atelier Digital">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/share/1HRgm8RcM1/" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Atelier Digital">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+        </div>
+    </footer>
+
+  <!-- Script File -->
+  <script src="script.js"></script>
+</body>
+</html>

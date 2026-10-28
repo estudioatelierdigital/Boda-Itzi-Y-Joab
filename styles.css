@@ -1,0 +1,903 @@
+/* ==========================================================================
+   Variables & Theme Setup (Paleta de 5 tonos con presencia activa)
+   ========================================================================== */
+:root {
+  --clr-burgundy: #4A0E17;
+  --clr-dusty-rose: #9B323F;
+  --clr-baby-pink: #F4C1B6;
+  --clr-olive-green: #5B682D;
+  --clr-ivory: #F9F3E3;
+  
+  --clr-text-main: #331519;
+  --clr-text-muted: #6B4E53;
+  --clr-white: #FFFFFF;
+  --clr-border-rose: rgba(155, 50, 63, 0.22);
+  --clr-border-green: rgba(91, 104, 45, 0.28);
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --container-max: 720px;
+  --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ==========================================================================
+   Reset & General Styles
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--clr-ivory);
+  color: var(--clr-text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fondo Dinámico con destellos ambientales sutiles */
+.ambient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: 
+    radial-gradient(circle at 10% 10%, rgba(244, 193, 182, 0.45) 0%, transparent 40%),
+    radial-gradient(circle at 90% 45%, rgba(155, 50, 63, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 20% 90%, rgba(91, 104, 45, 0.12) 0%, transparent 45%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Tipografías */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--clr-burgundy);
+  line-height: 1.2;
+}
+
+p {
+  color: var(--clr-text-muted);
+  font-size: 0.95rem;
+}
+
+/* Secciones */
+.section {
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--clr-olive-green);
+  background-color: rgba(91, 104, 45, 0.08);
+  padding: 0.4rem 1.1rem;
+  border-radius: 30px;
+  border: 1px solid var(--clr-border-green);
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  color: var(--clr-burgundy);
+  margin-bottom: 2rem;
+  letter-spacing: -0.5px;
+}
+
+.section-title-sm {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--clr-dusty-rose);
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   Music Player Flotante Premium
+   ========================================================================== */
+.music-player-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+}
+
+.music-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(74, 14, 23, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--clr-dusty-rose);
+  padding: 0.7rem 1.2rem;
+  border-radius: 50px;
+  color: var(--clr-baby-pink);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(74, 14, 23, 0.3);
+  transition: all 0.35s var(--transition-smooth);
+}
+
+.music-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: var(--clr-burgundy);
+  box-shadow: 0 14px 35px rgba(74, 14, 23, 0.4);
+}
+
+.music-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Hero Section / Portada (Efecto Inmersivo)
+   ========================================================================== */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-section .subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--clr-olive-green);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.hero-section .names {
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: var(--clr-burgundy);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.hero-section .ampersand {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--clr-dusty-rose);
+}
+
+.divider-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.divider-ornament .line {
+  height: 1px;
+  width: 70px;
+  background: linear-gradient(90deg, transparent, var(--clr-dusty-rose), transparent);
+}
+
+.divider-ornament .diamond {
+  font-size: 0.7rem;
+  color: var(--clr-olive-green);
+}
+
+.hero-section .date {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  letter-spacing: 3px;
+  color: var(--clr-burgundy);
+  margin-bottom: 0.5rem;
+}
+
+.hero-section .location-brief {
+  font-size: 0.88rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--clr-olive-green);
+  font-weight: 600;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.8;
+}
+
+.scroll-indicator span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--clr-text-muted);
+}
+
+.arrow-down {
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid var(--clr-dusty-rose);
+  border-bottom: 2px solid var(--clr-dusty-rose);
+  transform: rotate(45deg);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
+  40% { transform: translateY(6px) rotate(45deg); }
+  60% { transform: translateY(3px) rotate(45deg); }
+}
+
+/* ==========================================================================
+   Countdown Section (Tarjetas flotantes premium)
+   ========================================================================== */
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.time-card {
+  background: var(--clr-white);
+  padding: 1.4rem 0.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--clr-border-rose);
+  box-shadow: 0 10px 30px rgba(155, 50, 63, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.time-card:hover {
+  transform: translateY(-4px);
+}
+
+.time-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--clr-dusty-rose), var(--clr-burgundy));
+}
+
+.time-card .number {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--clr-burgundy);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.time-card .label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--clr-olive-green);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Quote Section (Estilo editorial con Baby Pink)
+   ========================================================================== */
+.quote-box {
+  background: #fafafa;
+  border: 2px rgba(3, 2, 2, 0.3);
+  padding: 3rem 2.2rem;
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(73, 1, 12, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-text {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-style: italic;
+  color: #722F37;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.quote-author {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--clr-dusty-rose);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Parents Section
+   ========================================================================== */
+.parents-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.parents-card {
+  background: var(--clr-white);
+  padding: 2.2rem 1.5rem;
+  border-radius: 18px;
+  border: 1px solid var(--clr-border-rose);
+  box-shadow: 0 8px 25px rgba(74, 14, 23, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.parents-card:hover {
+  transform: translateY(-3px);
+}
+
+.parents-card h3 {
+  font-size: 1.45rem;
+  margin-bottom: 0.8rem;
+  color: var(--clr-dusty-rose);
+}
+
+.parents-card p {
+  font-size: 1.08rem;
+  color: var(--clr-burgundy);
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   Location Section
+   ========================================================================== */
+.location-card {
+  background: var(--clr-white);
+  border-radius: 20px;
+  padding: 2.8rem 2rem;
+  border: 1px solid var(--clr-border-green);
+  box-shadow: 0 10px 30px rgba(91, 104, 45, 0.08);
+}
+
+.location-header h3 {
+  font-size: 1.9rem;
+  color: var(--clr-burgundy);
+  margin-bottom: 0.5rem;
+}
+
+.location-header .address {
+  font-size: 0.98rem;
+  color: var(--clr-text-muted);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Buttons con micro-interacciones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s var(--transition-smooth);
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  max-width: 340px;
+}
+
+.btn-primary {
+  background-color: var(--clr-burgundy);
+  color: var(--clr-baby-pink);
+  box-shadow: 0 6px 20px rgba(74, 14, 23, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--clr-dusty-rose);
+  color: var(--clr-white);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(155, 50, 63, 0.35);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--clr-burgundy);
+  border: 1.5px solid var(--clr-dusty-rose);
+}
+
+.btn-secondary:hover {
+  background-color: var(--clr-dusty-rose);
+  color: var(--clr-white);
+  transform: translateY(-3px);
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: var(--clr-white);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebc57;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+}
+
+.btn-icon, .whatsapp-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Itinerary Timeline Section (Línea de tiempo dinámica)
+   ========================================================================== */
+.timeline {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+  padding-left: 1.8rem;
+  text-align: left;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--clr-olive-green), var(--clr-dusty-rose), var(--clr-burgundy));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.2rem;
+  padding-left: 1.5rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.02rem;
+  top: 0.3rem;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: var(--clr-burgundy);
+  border: 3px solid var(--clr-ivory);
+  box-shadow: 0 0 0 2px var(--clr-dusty-rose);
+}
+
+.timeline-item .time {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--clr-olive-green);
+  margin-bottom: 0.1rem;
+}
+
+.timeline-item .details h4 {
+  font-size: 1.2rem;
+  color: var(--clr-burgundy);
+}
+
+.timeline-item .details p {
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Dress Code Section
+   ========================================================================== */
+.dresscode-card {
+  background: var(--clr-white);
+  border-radius: 20px;
+  padding: 2.8rem 1.8rem;
+  border: 1px solid var(--clr-border-rose);
+  box-shadow: 0 10px 30px rgba(74, 14, 23, 0.05);
+}
+
+.dresscode-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.2rem auto;
+  color: var(--clr-olive-green);
+  background: rgba(91, 104, 45, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.dresscode-card h3 {
+  font-size: 1.8rem;
+  color: var(--clr-burgundy);
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   Gifts Section
+   ========================================================================== */
+.gift-card {
+  background: var(--clr-white);
+  border-radius: 20px;
+  padding: 2.8rem 2rem;
+  border: 1px solid var(--clr-border-rose);
+  box-shadow: 0 10px 30px rgba(74, 14, 23, 0.05);
+}
+
+.gift-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.2rem auto;
+  color: var(--clr-dusty-rose);
+  background: rgba(155, 50, 63, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.gift-note {
+  margin-bottom: 1.5rem;
+}
+
+.gift-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.store-name {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--clr-burgundy);
+}
+
+.gift-number-box {
+  background: var(--clr-baby-pink);
+  padding: 0.9rem 1.4rem;
+  border-radius: 12px;
+  border: 1px dashed var(--clr-dusty-rose);
+  width: 100%;
+  max-width: 340px;
+}
+
+.gift-number-box .label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--clr-burgundy);
+  font-weight: 600;
+}
+
+.gift-number-box .number-code {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--clr-dusty-rose);
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   RSVP Section
+   ========================================================================== */
+.rsvp-deadline {
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  color: var(--clr-burgundy);
+}
+
+.rsvp-deadline strong {
+  color: var(--clr-dusty-rose);
+}
+
+.rsvp-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* ==========================================================================
+   Footer Evento
+   ========================================================================== */
+.footer-event {
+  padding: 4.5rem 0 3rem 0;
+  background: linear-gradient(180deg, transparent, var(--clr-baby-pink));
+  text-align: center;
+}
+
+.footer-names {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  color: var(--clr-burgundy);
+  margin-bottom: 0.5rem;
+}
+
+.footer-thanks {
+  font-size: 0.95rem;
+  color: var(--clr-dusty-rose);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   FOOTER (MARCA) ATELIER DIGITAL
+   ========================================================================== */
+.brand-section {
+  background-color: var(--clr-burgundy);
+  color: var(--clr-baby-pink);
+  text-align: center;
+  padding: 3.5rem 1.5rem 3rem 1.5rem;
+  position: relative;
+}
+
+.brand-divider {
+  width: 40px;
+  height: 2px;
+  background-color: var(--clr-dusty-rose);
+  margin: 0 auto;
+}
+
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  letter-spacing: 4px;
+  color: var(--clr-white);
+  font-weight: 600;
+}
+
+.brand-text {
+  font-size: 0.85rem;
+  color: var(--clr-baby-pink);
+  opacity: 0.85;
+  margin-top: 0.4rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5rem;
+}
+
+.brand-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.brand-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(244, 193, 182, 0.2);
+  border-radius: 50%;
+  color: var(--clr-baby-pink);
+  font-size: 1rem;
+  transition: all 0.3s var(--transition-smooth);
+  text-decoration: none;
+}
+
+.brand-social a:hover {
+  background: var(--clr-dusty-rose);
+  color: var(--clr-white);
+  transform: translateY(-3px);
+  border-color: var(--clr-dusty-rose);
+}
+
+/* ==========================================================================
+   Scroll Animations
+   ========================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s var(--transition-smooth), transform 0.9s var(--transition-smooth);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (min-width: 600px) {
+  .hero-section .names {
+    font-size: 5.8rem;
+  }
+
+  .parents-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .section-title {
+    font-size: 2.8rem;
+  }
+
+  .countdown-grid {
+    gap: 1.5rem;
+  }
+
+  .time-card .number {
+    font-size: 3rem;
+  }
+}
+
+/* 7. Footer - Marca Atelier Digital */
+.brand-section {
+    position: relative;
+    z-index: 35;
+    padding: 50px 28px 40px;
+    text-align: center;
+    background-color: #4A0E17;
+}
+
+.brand-divider {
+    width: 128px;
+    height: 1px;
+    margin: 0 auto 34px;
+    background: linear-gradient(90deg, transparent, var(--clr-olive-green), transparent);
+}
+
+.brand-logo {
+    display: block;
+    width: 120px;
+    max-width: 40vw;
+    height: auto;
+    margin: 0 auto 24px;
+    /* Invertimos el color del monograma para que resalte en el fondo negro */
+    filter: invert(1) brightness(0.9);
+}
+
+.brand-created {
+    margin-bottom: 10px;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #888;
+}
+
+.brand-name {
+    margin-bottom: 18px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 5px;
+    color: var(--color-dorado);
+}
+
+.brand-text {
+    max-width: 360px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: #aaa;
+}
+
+.brand-social {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.brand-social a {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--color-blanco);
+    border: 1px solid #333;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.brand-social a:hover {
+    transform: translateY(-4px);
+    color: var(--color-fondo);
+    background-color: var(--color-dorado);
+    border-color: var(--color-dorado);
+}
+
+/* ==========================================================================
+   Animación de Partículas Flotantes Globales
+   ========================================================================== */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1; /* Por encima del fondo pero detrás del contenido */
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background-color: var(--clr-dusty-rose);
+  border-radius: 50%;
+  opacity: 0.25;
+  animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.35;
+  }
+  80% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(110vh) translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
